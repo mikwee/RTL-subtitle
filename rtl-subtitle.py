@@ -6,6 +6,8 @@
 # Source: https://github.com/NabiKAZ/RTL-subtitle
 # MIT License
 
+import sys
+
 def add_rle_to_paragraphs(srt_content, rle_char):
     paragraphs = srt_content.strip().split('\n\n')
     modified_paragraphs = []
@@ -26,8 +28,8 @@ def add_rle_to_paragraphs(srt_content, rle_char):
     return '\n\n'.join(modified_paragraphs)
 
 def main():
-    input_file = 'sample_subtitle.srt'
-    output_file = 'output_subtitle.srt'
+    input_file = sys.argv[1]
+    output_file = sys.argv[2]
     rle_char = '\u202B'  # Use the UTF-16 encoding character.
 
     with open(input_file, 'r', encoding='utf-8') as file:
